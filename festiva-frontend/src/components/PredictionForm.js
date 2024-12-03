@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { getPrediction } from '../utils/api';
+import { TextField, Button, Box, Typography } from '@mui/material';
 
 const PredictionForm = () => {
   const [feature1, setFeature1] = useState('');
@@ -8,49 +10,60 @@ const PredictionForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const features = [parseFloat(feature1), parseFloat(feature2)];
-    try {
-        const result = await getPrediction(features);
-        if (result && 'demand_prediction' in result) {
-            setPrediction(result.demand_prediction);
-        } else {
-            console.error('Invalid response:', result);
-            setPrediction(null); // Clear prediction if response is invalid
-        }
-    } catch (error) {
-        console.error('Error fetching prediction:', error);
-        setPrediction(null); // Clear prediction on error
+    if (!feature1 || !feature2) {
+      alert('Please enter valid values for both features.');
+      return;
     }
-};
 
+    const features = [parseFloat(feature1), parseFloat(feature2)];
+    const result = await getPrediction(features);
+    setPrediction(result?.demand_prediction);
+  };
 
   return (
-    <div>
-      <h2>Predict Product Demand</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          placeholder="Feature 1"
-          value={feature1}
-          onChange={(e) => setFeature1(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Feature 2"
-          value={feature2}
-          onChange={(e) => setFeature2(e.target.value)}
-          required
-        />
-        <button type="submit">Predict</button>
+    <Box sx={{ textAlign: 'center', marginTop: '2rem' }}>
+      <Typography variant="h4" gutterBottom>
+        Predict Product Demand
+      </Typography>
+      <form onSubmit={handleSubmit} style={{ display: 'inline-block', textAlign: 'left' }}>
+        <Box sx={{ marginBottom: '1rem' }}>
+          <TextField
+            label="Feature 1"
+            type="number"
+            value={feature1}
+            onChange={(e) => setFeature1(e.target.value)}
+            required
+            sx={{ marginRight: '10px' }}
+          />
+          <TextField
+            label="Feature 2"
+            type="number"
+            value={feature2}
+            onChange={(e) => setFeature2(e.target.value)}
+            required
+          />
+        </Box>
+        <Button variant="contained" color="primary" type="submit">
+          Predict
+        </Button>
       </form>
+
       {prediction !== null && (
-        <div>
-          <h3>Prediction Result:</h3>
-          <p>{prediction === 1 ? 'High Demand' : 'Low Demand'}</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{ marginTop: '20px' }}
+        >
+          <Typography variant="h5" gutterBottom>
+            Prediction Result:
+          </Typography>
+          <Typography variant="h6">
+            {prediction === 1 ? 'High Demand' : 'Low Demand'}
+          </Typography>
+        </motion.div>
       )}
-    </div>
+    </Box>
   );
 };
 
