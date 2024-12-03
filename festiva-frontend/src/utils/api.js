@@ -1,13 +1,23 @@
-// Placeholder for API functions
 import axios from 'axios';
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = 'http://127.0.0.1:5000';
 
 export const getRecommendations = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/recommendations`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching recommendations:', error);
+  }
+};
+
+export const getPrediction = async (features) => {
     try {
-        const response = await axios.get(`${API_URL}/recommendations`);
+        const response = await axios.post(`${API_URL}/predict`, { features });
+        console.log('API Response:', response.data); // Log the API response
         return response.data;
     } catch (error) {
-        console.error("Error fetching recommendations:", error);
+        console.error('Error fetching prediction:', error);
+        return null; // Return null on error
     }
 };

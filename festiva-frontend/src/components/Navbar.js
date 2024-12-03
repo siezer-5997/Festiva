@@ -11,6 +11,7 @@ const Navbar = () => {
                 <Button color="inherit">Home</Button>
                 <Button color="inherit">Products</Button>
                 <Button color="inherit">About</Button>
+                <Button color="inherit">Contact</Button>
             </Toolbar>
         </AppBar>
     );
