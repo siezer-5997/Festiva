@@ -1,0 +1,126 @@
+/* Sidebar Styles */
+.sidebar {
+  width: 301px;
+  background: linear-gradient(to bottom, #5783b3, #22909e);
+  position: fixed;
+  top: 0;
+  bottom: 2rem;
+  left: 0;
+  height: 100vh;
+  padding: 30px 30px 20px 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* For Firefox - optional for custom scrollbar */
+}
+
+/* Optional: Customize the scrollbar appearance for modern browsers */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #22909e;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #1d7f8b;
+}
+
+
+.sidebar-header {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffd700;
+  margin-bottom: 30px;
+}
+
+.sidebar-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 1px;
+  background: #ff4500;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sidebar-close-btn:hover {
+  background: #ff6347;
+}
+
+.sidebar-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0 0 66px 0;
+}
+
+.sidebar-link {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: white;
+  padding: 10px 15px;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffd700;
+}
+
+/* Categories Toggle Button */
+.sidebar-toggle-btn {
+  position: fixed;
+  top: 13px;
+  left: 2px;
+  background: linear-gradient(135deg, #6bafd4, #b4c6c4);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1100;
+  transition: background 0.3s ease;
+}
+
+.sidebar-toggle-btn:hover {
+  background: linear-gradient(135deg, #b3d7eb, #bdece8);
+}
+
+/* Mobile Responsive Sidebar */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .sidebar-header {
+    font-size: 1.5rem;
+  }
+
+  .sidebar-link {
+    font-size: 1rem;
+  }
+
+  .sidebar-toggle-btn {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}

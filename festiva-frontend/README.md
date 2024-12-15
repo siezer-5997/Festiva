@@ -1,70 +1,122 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# **Frontend Project**
 
-In the project directory, you can run:
+This project is the frontend of [your application name], built using [framework/library name, e.g., React, Vue.js, Angular]. Follow the steps below to set up, install dependencies, and run the application.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## **Table of Contents**
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Environment Variables](#environment-variables)
+4. [Running the Application](#running-the-application)
+5. [Available Scripts](#available-scripts)
+6. [Troubleshooting](#troubleshooting)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## **Prerequisites**
+Before you begin, ensure you have the following installed on your machine:
+- **Node.js** (version >= 16) and **npm** (Node Package Manager) or **Yarn**.
+  - [Download Node.js](https://nodejs.org/)
+- **Git** (for cloning the repository).
+  - [Download Git](https://git-scm.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## **Installation**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/siezer-5997/Festiva.git
+   cd Festiva
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install Dependencies**:
+   Run the following command to install all the required dependencies:
+   ```bash
+   npm install
+   ```
+   Or, if you prefer Yarn:
+   ```bash
+   yarn install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## **Environment Variables**
+This project uses environment variables for configuration of postgre SQL database. Create a `.env` file in the root directory and add the following (replace `<values>` with your actual values):
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```plaintext
+DATABASE_URL=<backend_database_url> (looks like: postgresql://username:password@localhost:5432/festiva)
+JWT_SECRET_KEY=<your_key>
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> Ensure sensitive information like API keys is not shared publicly.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## **Running the Application**
 
-## Learn More
+1. **Start the Development Server**:
+   ```bash
+   npm start
+   ```
+   Or with Yarn:
+   ```bash
+   yarn start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Open your browser and navigate to:
+   ```
+   http://localhost:3000
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## **Available Scripts**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Here are some useful scripts defined in the project:
 
-### Analyzing the Bundle Size
+1. **Start Development Server**:
+   ```bash
+   npm start
+   ```
+2. **Build for Production**:
+   ```bash
+   npm run build
+   ```
+3. **Run Tests**:
+   ```bash
+   npm test
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## **Troubleshooting**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Common Errors**:
+   - **`npm install` fails**: Ensure you have the correct Node.js version installed.
+   - **Missing `.env` file**: Double-check your `.env` file and its variables.
+   - **Port in Use**: If the default port is already in use, start the app on a different port:
+     ```bash
+     PORT=4000 npm start
+     ```
 
-### Advanced Configuration
+2. **Clearing Cache**:
+   If you encounter unexpected issues, clear your npm/Yarn cache:
+   ```bash
+   npm cache clean --force
+   ```
+   Or:
+   ```bash
+   yarn cache clean
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+Feel free to reach out if you encounter any issues or have feedback!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+--- 
