@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  PointElement,
-  LineElement,
+  BarElement,
   Title,
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+// import { fetchTrendingProducts } from '../utils/api'; // Assuming you have an API utility for fetching data
 
-// Register necessary components for Chart.js
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+// Register Chart.js components
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const ProductTrendsChart = () => {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-    datasets: [
-      {
-        label: 'Product Demand Trends',
-        data: [65, 59, 80, 81, 56, 55],
-        borderColor: 'rgba(75, 192, 192, 1)',
-        tension: 0.4,
-        fill: false,
-      },
-    ],
-  };
+const ProductTrendsChart = ({ products }) => {
+  const [chartData, setChartData] = useState(null);
+
+  useEffect((products) => {
+    const fetchData = async () => {
+      try {
+        // Fetch trending products data from backend
+        // const products = await fetchTrendingProducts(); // API call to get dynamic data
+        // const products = products
+        const labels = products.map((product) => product.name.length > 20 ? `${product.name.slice(0, 12)}...` : product.name); // Product names as labels
+        const data = products.map((product) => product.price || 0); // Prices as data
+        console.log(products);
+        // Set chart data
+        setChartData({
+          labels,
+          datasets: [
+            {
+              label: 'Trending Product Prices',
+              data,
+              backgroundColor: 'rgba(75, 192, 192, 0.5)', // Bar color
+              borderColor: 'rgba(75, 192, 192, 1)', // Border color
+              borderWidth: 1,
+            },
+          ],
+        });
+      } catch (error) {
+        console.error('Error fetching trending products:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!chartData) {
+    return <p>Loading chart...</p>;
+  }
 
   const options = {
     responsive: true,
@@ -37,12 +60,12 @@ const ProductTrendsChart = () => {
       },
       title: {
         display: true,
-        text: 'Product Demand Over Time',
+        text: 'Trending Product Prices',
       },
     },
   };
 
-  return <Line data={data} options={options} />;
+  return <Bar data={chartData} options={options} />;
 };
 
 export default ProductTrendsChart;

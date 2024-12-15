@@ -1,4 +1,33 @@
-node_modules/
+# Frontend
+festiva-frontend/node_modules/
+festiva-frontend/build/
+
+# Backend
+festiva-backend/venv/
+festiva-backend/.env
+festiva-backend/__pycache__/
+festiva-backend/*.log
+festiva-backend/combined_amazon_products.csv
+
+# Secrets and Configuration
 .env
-__pycache__/
-venv/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# System Files
+.DS_Store
+*.log
+
+# Dependencies
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

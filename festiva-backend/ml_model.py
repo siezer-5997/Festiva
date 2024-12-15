@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 def train_model():
     # Example dataset
     data = {
-        'feature1': [10, 20, 30, 40, 50],
+        'feature1': [10, 20, 30, 40, 50], 
         'feature2': [5, 15, 25, 35, 45],
         'demand': [1, 0, 1, 0, 1]  # 1 = High demand, 0 = Low demand
     }

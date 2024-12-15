@@ -1,0 +1,129 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6bafd4, #b4c6c4);
+  font-family: 'Arial', sans-serif;
+}
+
+/* .login-container h2 {
+  color: black;
+} */
+
+.login-box {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  max-width: 900px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* .box1 {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  background: #007bff;
+} */
+
+.box1 {
+  flex: 1;
+  background-image: url('../assets/login2.jpg');
+  /* Replace with the correct path to your image */
+  background-size: cover;
+  /* Ensures the image covers the entire box */
+  background-position: center;
+  /* Centers the image within the box */
+  background-repeat: no-repeat;
+  /* Prevents the image from repeating */
+  height: 100%;
+  /* Ensure the height matches the flex container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.login-image {
+  width: 20rem;
+  height: 20rem;
+  height: auto;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.box2 {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.box2 h2 {
+  margin-bottom: 20px;
+  color: #6bafd4;
+  font-size: 1.8rem;
+}
+
+.box2 form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.box2 input {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.box2 input ::placeholder{
+  color: #ddd;
+  opacity: 2.4;
+}
+
+.box2 button {
+  background-color: #6bafd4;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.box2 button:hover {
+  background-color: #95bdcb;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-box {
+    flex-direction: column;
+  }
+
+  .box1,
+  .box2 {
+    flex: none;
+    width: 100%;
+  }
+
+  .login-image {
+    max-width: 200px;
+  }
+}
